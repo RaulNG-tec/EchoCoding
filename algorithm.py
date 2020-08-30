@@ -67,8 +67,11 @@ class Owner():
     def stablishment(self):
         return self.__stablishment
     
-    def make_reservation(persons):
-        
+    def make_reservation(self, persons):
+    
+    def delete_reservation(self):
+    
+    def display_stablishment(self):
     # funcion para reservar asiento
     # funcion para liberar asiento 
     # funcion para ver lugar
@@ -114,7 +117,7 @@ class Stablishment():
 
 
 
-def space_maker(space,mx_ocup,distance,percent):
+def space_maker(space,mx_ocup,distance,percent, length, width):
     
     tables =  math.floor((mx_ocup*percent)/100))
     area= length * width
@@ -122,7 +125,10 @@ def space_maker(space,mx_ocup,distance,percent):
     if math.ciel(area/tables)<distance :
         #mensaje de error
     else :
-        ocupi(math.ciel(area/tables)*100)/area)
+        ocupied_p=(math.ciel(area/tables)*100)/area)
+        array_approx = (length*2)*(width*2)
+        squares= math.ciel(array_approx/(occupied_p/100))
+
     
 
 
