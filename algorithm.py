@@ -30,5 +30,5 @@ class Owner():
     # funcion para liberar asiento 
     # funcion para ver lugar
 
-class algoritmo():
-    #
+def spaceMaker(mx_ocup,distance,percent):
+    

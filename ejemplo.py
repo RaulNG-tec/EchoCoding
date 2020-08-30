@@ -12,14 +12,12 @@ text_entry_width      = Entry(window, bg = '#8f9b9c') #font = "Helvetica 40"
 text_entry_depth      = Entry(window, bg = '#8f9b9c') #font = "Helvetica 40"
 text_entry_percentage = Entry(window, bg = '#8f9b9c')
 
-label_width = Label(window, text = "Hello World", bg = "blue")
-label_width.pack(fill = X) #expand = True, fill = BOTH
+label_width = Label(window, text = text_entry_width.get(), bg = "blue")) #expand = True, fill = BOTH
+label_width = Label(window, text = text_entry_width.get(), bg = "blue"))
 
 canvas = Canvas()
 
 def funcEnter(text,text2):
-    print("Funcion: " + text + " " + str(text2))
-    label_width["text"] = text2
     text_entry_width.pack_forget()
     text_entry_depth.pack_forget()
     button_start.pack_forget()
