@@ -60,7 +60,7 @@ ROOT_URLCONF = 'BlueYonder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/raulnavarro/DocumentosLocales/Echo_Coding/HackMTY/BlueYonder/templates'],
+        'DIRS': [Path.joinpath(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

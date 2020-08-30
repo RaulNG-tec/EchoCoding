@@ -10,5 +10,5 @@ def home_view(request,*args, **kwargs):
 
 def contact_view(request,*args, **kwargs):
     print(request.user)
-    return HttpResponse("<h1>Contact Page</h1>") #string of HTML code
+    return render(request, "contact.html", {})
 
