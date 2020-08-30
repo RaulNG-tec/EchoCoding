@@ -27,9 +27,9 @@ def main():
 
     window.geometry(str(SCREEN_WIDTH//2)+"x"+str(SCREEN_HEIGHT//2))
 
-    text_entry_width      = Entry(window, bd = 0, fg = COLORS['light_blue'], bg = COLORS['dark_blue']) #font = "Helvetica 40"
-    text_entry_depth      = Entry(window, bd = 0, fg = COLORS['light_blue'], bg = COLORS['dark_blue']) #font = "Helvetica 40"
-    text_entry_percentage = Entry(window, bd = 0, fg = COLORS['light_blue'], bg = COLORS['dark_blue'])
+    text_entry_width      = Entry(window, selectborderwidth = 0, fg = COLORS['light_blue'], bg = COLORS['dark_blue']) #font = "Helvetica 40"
+    text_entry_depth      = Entry(window, selectborderwidth = 0, fg = COLORS['light_blue'], bg = COLORS['dark_blue']) #font = "Helvetica 40"
+    text_entry_percentage = Entry(window, selectborderwidth = 0, fg = COLORS['light_blue'], bg = COLORS['dark_blue'])
 
     label_width      = Label(window, text = "Width", bg = COLORS['darkest_blue'], fg = 'white') #expand = True, fill = BOTH
     label_depth      = Label(window, text = "Depth", bg = COLORS['darkest_blue'], fg = 'white')

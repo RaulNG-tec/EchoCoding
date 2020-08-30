@@ -8,14 +8,23 @@ class DataBase():
 
 class Reservation():
     #numero de personas, mesa asignada, hora {dure una hora}, numero de reserva
+    def __init__(people,table,hour,reservation):
+        self.__people= people
+        self.__table = table #tupla
+        self.__hour= hour
+        self.__reservation=reservation
     
-    #funcion para imprimir el espacio disponible
+    didc={700:[[0,1,1,0],
+                [0,1,1,0]],800:[[0,-1,-1,0],
+                                [0,-1,-1,0]]}
+    dic={}
+    dic[llave]=[[0,0,0,]]
     #funcion para escoger asiento {hora} [maximo 4 personas]
     #funcion para liberar asiento
     
 
 class Owner():
-    # restaurante, largo y ancho del local, trablecer espacio {maxima ocupacion, distancia, porcentaje}
+    # restaurante, largo y ancho del local, establecer espacio {maxima ocupacion, distancia, porcentaje}
     def __init__(self,name,leng,wdt,tbl,perc,dis):
         self.__name =   name
         self.__leng =   leng
@@ -25,19 +34,23 @@ class Owner():
         self.__dis  =   dis
 
         spacejam=[]
-        for i in range (length*2):
+        for i in range (leng*2):
             line=[]
-            for j in range(width*2):
+            for j in range(wdt*2):
                 line.append(0)
             spacejam.append(line)
         
         self.__stablishment=spacejam
     
-    @dis.setter
+    @safe_distance.setter
     def distance_setter(self, val):
         self.__dis = val
     
-    @perc.setter
+    @occupancy_percent.setter
+    def occupancy_percent(self, val):
+        self.__perc = val
+    
+    @.setter
     def occupancy_percent(self, val):
         self.__perc = val
     
@@ -66,15 +79,15 @@ class Owner():
     @property
     def stablishment(self):
         return self.__stablishment
+
+    def printTables(leng, wdt):
+        for i in range (leng *2)
+            for j in range (wdt*2)
+                print(spacejam[i][j])
+            print()
     
-    def make_reservation(self, persons):
     
-    def delete_reservation(self):
     
-    def display_stablishment(self):
-    # funcion para reservar asiento
-    # funcion para liberar asiento 
-    # funcion para ver lugar
 
 
 class User():
@@ -104,16 +117,15 @@ class User():
 
     def cancel_reservation(self):
         self.__reservation=NULL
-    #funcion para reservar
-    #funcion para consultar reserva
-    #funcion para cancelar reserva 
-
-
-
-
-
-class Stablishment():
-    # CAD en .SLD o .PRT 
+    
+    # funcion para reservar asiento
+    def make_reservation(self, persons):
+    
+    # funcion para liberar asiento 
+    def delete_reservation(self):
+    
+    # funcion para ver lugar
+    def display_stablishment(self):
 
 
 
@@ -134,33 +146,4 @@ def space_maker(space,mx_ocup,distance,percent, length, width):
 
     return spacejam
 
-class Punto2D:
-    def __str__(self):
-        return f'Punto: x={self.x}, y={self.y} '
 
-    def __init__(self,x,y):
-        self.__x = x
-        self.__y = y
-
-    @property
-    def x(self):
-        return self.__x
-    @x.setter
-    def x(self, value):
-        self.__x = value
-
-    @property
-    def y(self):
-        return self.__y
-    @y.setter
-    def y(self, value):
-        self.__y = value
-
-    def distancia_euclidiana(self,punto2):
-        return((self.x-punto2.x)**2+(self.y-punto2.y)**2)**0.5
-
-    def punto_medio(self,punto2):
-        return Punto2D((self.x+punto2.x)/2,(self.y+punto2.y)/2)
-    
-    def __add__(self, p):
-        return Punto2D(self.x + p.x, self.y + p.y)
