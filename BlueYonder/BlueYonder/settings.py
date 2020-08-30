@@ -37,19 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
 
     #third party
 
     #own
     'products',
-=======
-    # third party
-
-    # own
-    'products',
-
->>>>>>> 684cfe060437d52d536345c2b2bf7f667505380e
 ]
 
 MIDDLEWARE = [
