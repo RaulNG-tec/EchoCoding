@@ -1,39 +1,41 @@
 from tkinter import *
 
-# a subclass of Canvas for dealing with resizing of windows
-class ResizingCanvas(Canvas):
-    def __init__(self,parent,**kwargs):
-        Canvas.__init__(self,parent,**kwargs)
-        self.bind("<Configure>", self.on_resize)
-        self.height = self.winfo_reqheight()
-        self.width = self.winfo_reqwidth()
+UNIT_LENGTH = 0.5
 
-    def on_resize(self,event):
-        # determine the ratio of old width/height to new width/height
-        wscale = float(event.width)/self.width
-        hscale = float(event.height)/self.height
-        self.width = event.width
-        self.height = event.height
-        # resize the canvas 
-        self.config(width=self.width, height=self.height)
-        # rescale all the objects tagged with the "all" tag
-        self.scale("all",0,0,wscale,hscale)
+COLORS = {'white': '#FFFFFF','light_blue':'#B6DDF2','bright_blue':'#6CC2F0','medium_blue':'5598BD','dark_blue':'#04507A','darkest_blue':'#325B70'}
 
-def main():
-    root = Tk()
-    myframe = Frame(root)
-    myframe.pack(fill=BOTH, expand=YES)
-    mycanvas = ResizingCanvas(myframe,width=850, height=400, bg="red", highlightthickness=0)
-    mycanvas.pack(fill=BOTH, expand=YES)
+def show():
+    length = int(text_entry_width.get())//UNIT_LENGTH
+    width = int(text_entry_depth.get())//UNIT_LENGTH
 
-    # add some widgets to the canvas
-    mycanvas.create_line(0, 0, 200, 100)
-    mycanvas.create_line(0, 100, 200, 0, fill="red", dash=(4, 4))
-    mycanvas.create_rectangle(50, 25, 150, 75, fill="blue")
+    buttons=[]
+    for i in range (int(length)):
+        line=[]
+        for j in range(int(width)):
+            button = Button(window, text = "")
+            line.append(button)
+        buttons.append(line)
 
-    # tag all of the drawn widgets
-    mycanvas.addtag_all("all")
-    root.mainloop()
+    for i in range (int(length)):
+        for j in range(int(width)):
+            buttons[i][j].grid(row = i, column = j+3)
+        
 
-if __name__ == "__main__":
-    main()
+window = Tk()
+frame = Frame(window,width=500,height=500,relief="sunken",bd=20)
+
+SCREEN_WIDTH = window.winfo_screenwidth() #int
+SCREEN_HEIGHT = window.winfo_screenheight()
+
+window.geometry(str(SCREEN_WIDTH*2//3)+"x"+str(SCREEN_HEIGHT*2//3))
+
+label_width = Label(window,text="Width",font = ("Helvetica", 15)).grid(row = 0)
+label_depth = Label(window,text="Depth",font = ("Helvetica", 15)).grid(row = 1)
+text_entry_width = Entry(window, selectborderwidth = 0, fg = COLORS['light_blue'], bg = COLORS['dark_blue']) #font = "Helvetica 40"
+text_entry_depth = Entry(window, selectborderwidth = 0, fg = COLORS['light_blue'], bg = COLORS['dark_blue']) #font = "Helvetica 40"
+text_entry_depth.grid(row=0,column=1)
+text_entry_width.grid(row=1,column=1)
+
+button_show = Button(window, text = "Enter", command = show).grid(row=3)
+
+window.mainloop()
