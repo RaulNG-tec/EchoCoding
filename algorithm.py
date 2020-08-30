@@ -5,41 +5,25 @@ class DataBase():
     #funcion para añadir usuario
     #funcion para checar usuario
 
-
-class Reservation():
-    #numero de personas, mesa asignada, hora {dure una hora}, numero de reserva
-    def __init__(people,table,hour,reservation):
-        self.__people= people
-        self.__table = table #tupla
-        self.__hour= hour
-        self.__reservation=reservation
-    
-    didc={700:[[0,1,1,0],
-                [0,1,1,0]],800:[[0,-1,-1,0],
-                                [0,-1,-1,0]]}
-    dic={}
-    dic[llave]=[[0,0,0,]]
-    #funcion para escoger asiento {hora} [maximo 4 personas]
-    #funcion para liberar asiento
-    
-
-class Owner():
+class Owner(): 
     # restaurante, largo y ancho del local, establecer espacio {maxima ocupacion, distancia, porcentaje}
-    def __init__(self,name,leng,wdt,tbl,perc,dis):
-        self.__name =   name
-        self.__leng =   leng
-        self.__wdt  =   wdt
-        self.__tbl  =   tbl
-        self.__perc =   perc
-        self.__dis  =   dis
+    def __init__(self,name,leng,wdt,tbl,perc,dis,officehrs):
+        self.__name     =   name
+        self.__leng     =   leng
+        self.__wdt      =   wdt
+        self.__tbl      =   tbl
+        self.__perc     =   perc
+        self.__dis      =   dis
+        self.__officehrs =  officehrs
 
+        schedule={}
         spacejam=[]
         for i in range (leng*2):
             line=[]
             for j in range(wdt*2):
                 line.append(0)
             spacejam.append(line)
-        
+        for x in range()
         self.__stablishment=spacejam
     
     @safe_distance.setter
@@ -47,10 +31,6 @@ class Owner():
         self.__dis = val
     
     @occupancy_percent.setter
-    def occupancy_percent(self, val):
-        self.__perc = val
-    
-    @.setter
     def occupancy_percent(self, val):
         self.__perc = val
     
@@ -81,14 +61,7 @@ class Owner():
         return self.__stablishment
 
     def printTables(leng, wdt):
-        for i in range (leng *2)
-            for j in range (wdt*2)
-                print(spacejam[i][j])
-            print()
-    
-    
-    
-
+        
 
 class User():
 
@@ -120,14 +93,13 @@ class User():
     
     # funcion para reservar asiento
     def make_reservation(self, persons):
-    
+        self.__reservation=
     # funcion para liberar asiento 
     def delete_reservation(self):
+        
     
     # funcion para ver lugar
     def display_stablishment(self):
-
-
 
 def space_maker(space,mx_ocup,distance,percent, length, width):
     
@@ -139,9 +111,9 @@ def space_maker(space,mx_ocup,distance,percent, length, width):
     else :
         ocupied_p=(math.ciel(area/tables)*100)/area)
         array_approx = (length*2)*(width*2)
-        squares= math.ciel(array_approx/(occupied_p/100))
+        squares= math.ciel(array_approx/(occupied_p/100)) 
 
-    
+
 
 
     return spacejam
